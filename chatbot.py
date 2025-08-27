@@ -5,6 +5,8 @@ from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 from dotenv import load_dotenv
 from tools import get_summary_by_title
 from better_profanity import profanity
+import pyttsx3
+import time
 
 profanity.load_censor_words()
 
@@ -17,10 +19,24 @@ chroma_client = chromadb.PersistentClient(path="chromadb_data")
 embedding_function = OpenAIEmbeddingFunction(api_key=OPENAI_API_KEY, model_name="text-embedding-3-small")
 collection = chroma_client.get_or_create_collection(name="books", embedding_function=embedding_function)
 
-print("Welcome to Smart Librarian! Ask for a book. Type 'exit' to quit.")
+print("Welcome to Smart Librarian! Ask for a book. Type 'exit' or 'quit' in order to terminate the session.")
 
 def contains_profanity(text: str) -> bool:
     return profanity.contains_profanity(text)
+
+def speak(text: str, rate=160, voice_index=0):
+    engine = pyttsx3.init()
+    engine.setProperty('rate', rate)
+
+    voices = engine.getProperty('voices')
+    if voice_index < len(voices):
+        engine.setProperty('voice', voices[voice_index].id)
+
+    engine.say(text)
+    engine.runAndWait()
+    engine.stop()
+
+
 
 while True:
     user_input = input("\nYou: ").strip()
@@ -57,6 +73,11 @@ Please recommend the book '{top_book}' and explain why it's a good match."""
     )
 
     print(f"\n🤖 Librarian: {completion.choices[0].message.content}")
+    speak(completion.choices[0].message.content)
 
-    print("\nFull Summary:")
-    print(get_summary_by_title(top_book))
+    time.sleep(1)
+
+    summary = get_summary_by_title(top_book)
+    print("\n📘 Full Summary:")
+    print(summary)
+    speak(summary)
