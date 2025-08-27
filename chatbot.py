@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from tools import get_summary_by_title
 from better_profanity import profanity
 import pyttsx3
-import time
 
 profanity.load_censor_words()
 
@@ -37,9 +36,8 @@ def speak(text: str, rate=160, voice_index=0):
     engine.stop()
 
 
-
 while True:
-    user_input = input("\nYou: ").strip()
+    user_input = input("\nYou (type 'voice' and start talking): ").strip()
 
     if contains_profanity(user_input): 
         print("⚠️  Please use adequate language.")
@@ -74,8 +72,6 @@ Please recommend the book '{top_book}' and explain why it's a good match."""
 
     print(f"\n🤖 Librarian: {completion.choices[0].message.content}")
     speak(completion.choices[0].message.content)
-
-    time.sleep(1)
 
     summary = get_summary_by_title(top_book)
     print("\n📘 Full Summary:")
