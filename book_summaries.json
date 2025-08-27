@@ -1,0 +1,42 @@
+[
+  {
+    "title": "1984",
+    "summary": "A dystopian novel about a totalitarian regime where Big Brother watches every move. Winston Smith fights for truth in a world full of lies. Themes: surveillance, freedom, control."
+  },
+  {
+    "title": "The Hobbit",
+    "summary": "Bilbo Baggins embarks on a journey with dwarves to recover a treasure guarded by a dragon. Along the way, he finds unexpected courage. Themes: adventure, bravery, friendship."
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "summary": "Set in the American South, this novel follows a young girl witnessing injustice and racial tension through her father's legal battles. Themes: justice, innocence, racism."
+  },
+  {
+    "title": "Pride and Prejudice",
+    "summary": "Elizabeth Bennet navigates societal expectations and personal pride in 19th-century England. Themes: love, class, self-awareness."
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "summary": "Holden Caulfield recounts a few days in his life after being expelled from school, struggling with identity and loss. Themes: adolescence, alienation, identity."
+  },
+  {
+    "title": "The Great Gatsby",
+    "summary": "Jay Gatsby pursues wealth and love in the Roaring Twenties, only to face the emptiness of the American Dream. Themes: wealth, illusion, desire."
+  },
+  {
+    "title": "Brave New World",
+    "summary": "In a futuristic society driven by technology and instant gratification, individuality is suppressed. Themes: conformity, technology, identity."
+  },
+  {
+    "title": "Frankenstein",
+    "summary": "Victor Frankenstein creates life, only to be haunted by his creation. A story about ambition and responsibility. Themes: creation, isolation, humanity."
+  },
+  {
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "summary": "Harry discovers he is a wizard and begins a magical education while uncovering secrets about his past. Themes: friendship, magic, courage."
+  },
+  {
+    "title": "The Book Thief",
+    "summary": "A young girl finds solace in books during Nazi Germany, as narrated by Death. Themes: war, loss, hope."
+  }
+]
