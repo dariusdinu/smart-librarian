@@ -73,9 +73,11 @@ python cli_version.py
 
 ## 📷 Screenshots
 
-![Smart Librarian Screenshot](./assets/Demo-Image.png) *(Add your screenshot here)*
+![Smart Librarian Screenshot](./assets/Demo-Image.png)
 
 ---
+
+![Smart Librarian CLI](./assets/Demo-Image-CLI.png)
 
 ---
 
