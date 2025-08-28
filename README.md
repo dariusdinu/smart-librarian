@@ -73,7 +73,7 @@ python cli_version.py
 
 ## 📷 Screenshots
 
-![screenshot](./assets/screenshot.png) *(Add your screenshot here)*
+![Smart Librarian Screenshot](./assets/Demo-Image.png) *(Add your screenshot here)*
 
 ---
 
