@@ -12,11 +12,11 @@ def initialize_state():
     for key, default in defaults.items():
         if key not in st.session_state:
             st.session_state[key] = default
-
+            
 def reset_state():
-    """Reset session state to initial state and rerun the app."""
-    keys_to_reset = ["gpt_response", "summary", "title", "show_output", "user_input"]
+    keys_to_reset = [
+        "user_input", "title", "gpt_response", "summary", "show_output", "image_url"
+    ]
     for key in keys_to_reset:
-        st.session_state[key] = "" if key != "show_output" else False
-
-    st.rerun()
+        if key in st.session_state:
+            del st.session_state[key]
