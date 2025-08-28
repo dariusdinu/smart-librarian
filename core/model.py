@@ -5,7 +5,6 @@ from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 from dotenv import load_dotenv
 from tools import get_summary_by_title
 
-# Caches OpenAI and ChromaDB client initialization
 _client = None
 _collection = None
 
@@ -14,8 +13,7 @@ def load_openai_and_chroma():
     if _client is not None and _collection is not None:
         return _client, _collection
 
-    load_dotenv()
-    openai_key = os.getenv("OPENAI_API_KEY")
+    openai_key = os.environ.get("OPENAI_API_KEY")
     _client = OpenAI(api_key=openai_key)
 
     chroma_client = chromadb.PersistentClient(path="chromadb_data")

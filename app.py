@@ -15,7 +15,6 @@ initialize_state()
 st.title("📚 Smart Librarian")
 st.markdown("### Discover books based on your favorite themes and topics!")
 
-# Voice Input Button
 if st.button("🎙️ Speak"):
     with st.spinner("🎤 Listening... please speak now"):
         transcription = record_and_transcribe_google()
@@ -25,25 +24,36 @@ if st.button("🎙️ Speak"):
     else:
         st.toast("❌ Could not transcribe speech. Try again.")
 
-# Input
 user_input = st.text_input(
     "Type your request below:",
     placeholder="e.g. A book about friendship and bravery",
     key="user_input"
 )
-# Primary action
+
 generate_clicked = st.button("🔍 Get Recommendation", use_container_width=True)
 
-# Secondary actions - full-width in equal columns
-secondary_cols = st.columns([1, 1, 1])
-with secondary_cols[0]:
-    speak_clicked = st.button("🔊 Read Aloud", use_container_width=True)
-with secondary_cols[1]:
-    image_clicked = st.button("🎨 Generate Cover", use_container_width=True)
-with secondary_cols[2]:
-    clear_clicked = st.button("🧹 Clear", use_container_width=True)
+speak_clicked = False
+image_clicked = False
+clear_clicked = False
 
-# Button logic
+
+# Show post-action buttons only if output is visible
+if st.session_state.show_output:
+    st.markdown("### What would you like to do next?")
+    secondary_cols = st.columns([1, 1, 1])
+    with secondary_cols[0]:
+        speak_clicked = st.button("🔊 Read Aloud", use_container_width=True)    
+    with secondary_cols[1]:
+        image_clicked = st.button("🎨 Generate Cover", use_container_width=True)    
+    with secondary_cols[2]:
+        clear_clicked = st.button("🧹 Clear", use_container_width=True) 
+else:
+    # Show Clear button in initial state too
+    st.markdown("<div style='height: 10px'></div>", unsafe_allow_html=True)
+    if st.button("🧹 Clear", use_container_width=True):
+        reset_state()
+
+
 if clear_clicked:
     reset_state()
 
